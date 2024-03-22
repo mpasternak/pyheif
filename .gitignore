@@ -108,3 +108,6 @@ venv.bak/
 #scrath
 scratch/
 .idea
+
+\#*
+.\#*
