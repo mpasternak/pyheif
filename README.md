@@ -1,3 +1,15 @@
+# pyheif-iplweb
+Hacked version for building binary wheels for macOS because of [this issue](https://github.com/carsales/pyheif/issues/95).
+
+Please use [the original library here](https://github.com/carsales/pyheif/issues/95).
+
+To build, download this repo and type:
+```
+make all
+```
+
+In the ``dist`` directory you will find the wheel. 
+
 # pyheif
 Python 3.6+ interface to [libheif](https://github.com/strukturag/libheif) library using CFFI
 
