@@ -1,3 +1,4 @@
+import sys
 from setuptools import setup, find_packages
 
 with open("README.md", "r") as fh:
@@ -7,13 +8,18 @@ with open("pyheif/data/version.txt") as f:
     version = f.read().strip()
 
 setup(
-    name="pyheif",
+    name="pyheif-iplweb",
     version=version,
     packages=["pyheif"],
-    package_data={"pyheif": ["data/*"]},
+    package_data={"pyheif": [
+        "data/*",
+        
+        # Include the pre-build .so file with the proper name: 
+        f"../_libheif_cffi.cpython-{''.join([x for x in sys.version[:4] if x!='.'])}-{sys.platform}.so"
+    ]},
     install_requires=["cffi>=1.0.0"],
-    setup_requires=["cffi>=1.0.0"],
-    cffi_modules=["libheif/libheif_build.py:ffibuilder"],
+    setup_requires=["cffi>=1.0.0", "wheel"],
+    # cffi_modules=["libheif/libheif_build.py:ffibuilder"],
     author="Anthony Paes",
     author_email="ant32bit-carsales@users.noreply.github.com",
     description="Python 3.6+ interface to libheif library",
