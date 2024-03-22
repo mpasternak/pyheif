@@ -1,12 +1,20 @@
 # pyheif-iplweb
-Hacked version for building binary wheels for macOS because of [this issue](https://github.com/carsales/pyheif/issues/95).
+Repo for building binary wheels for macOS because of [this issue](https://github.com/carsales/pyheif/issues/95).
 
-Please use [the original library here](https://github.com/carsales/pyheif/issues/95).
+**This is not a fork**. Please use [the original library here](https://github.com/carsales/pyheif/issues/95). Please 
+do not submit any issues except those concerining the build process on macOS.  
+
+This is just a small repo for building binary pyheif packages on macOS.
+
+As you can see on PyPI, you can install with pip packages for Pyhton 3.10, 3.11, 3.12 
+using libheif-1.17.6:
+
+https://pypi.org/project/pyheif-iplweb/
 
 To build, download this repo, create virtualenv with 
 your favourite Python version, don't forget about downloading
 libheic with homebrew or macports and type:
-```
+```shell
 make all
 ```
 
