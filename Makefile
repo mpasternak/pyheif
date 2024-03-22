@@ -4,5 +4,5 @@ all:
 	python setup.py build bdist_wheel
 
 clean:
-	-rm _libheif_*
+	-rm -rf _libheif_* build dist
 	find . -type f -name \*pyc -print0 | xargs rm
