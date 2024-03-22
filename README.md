@@ -3,7 +3,9 @@ Hacked version for building binary wheels for macOS because of [this issue](http
 
 Please use [the original library here](https://github.com/carsales/pyheif/issues/95).
 
-To build, download this repo and type:
+To build, download this repo, create virtualenv with 
+your favourite Python version, don't forget about downloading
+libheic with homebrew or macports and type:
 ```
 make all
 ```
