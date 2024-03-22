@@ -12,25 +12,17 @@ with open("pyheif/data/version.txt") as f:
 pyversion = "".join([x for x in sys.version[:4] if x != "."]) # this will fail for Python x.100 or higher
 
 
-def get_platname():
-    libheif_version = "none"
+def get_libheif_version():
     try:
         import pyheif
-
-        libheif_version = pyheif.libheif_version()
+        return pyheif.libheif_version()
     except ImportError:
         pass
-
-    return (
-        calculate_macosx_platform_tag(".", get_platform())
-        + "-libheif-"
-        + libheif_version
-    )
 
 
 setup(
     name="pyheif-iplweb",
-    version=version,
+    version=version +  ".dev" + get_libheif_version().replace(".", ""),
     packages=["pyheif"],
     package_data={
         "pyheif": [
@@ -50,7 +42,7 @@ setup(
     python_requires="~=" + sys.version[:4], # this will fail on python x.100 or higher
     options={
         "bdist_wheel": {
-            "plat_name": get_platname(),
+            # "plat_name": get_platname(),
             "python_tag": "cp" + pyversion,
         },
     },
